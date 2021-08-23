@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(cinnabar-text VERSION 0.0.0)
+project(cinnabar-template VERSION 0.0.0)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -10,12 +10,4 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/run)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/dep/")
 
 add_subdirectory(dep)
-
-include_directories(
-	${CE_INCLUDE}
-)
-link_libraries(
-	${CE_LIBS}
-)
-
-add_subdirectory(src/demo)
+add_subdirectory(src)

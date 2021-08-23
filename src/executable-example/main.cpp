@@ -6,10 +6,12 @@
 #include <cinnabar-core/tpnt_log.h>
 #include <cinnabar-render/cinnabar-render.hpp>
 
+#include <library-example/noise_texture.hpp>
+
 int main(int argc, char* argv[]) {
 	ce::Time* time = new ce::Time();
 
-	ce::Window* window = new ce::Window("Cinnabar Demo");
+	ce::Window* window = new ce::Window("Cinnabar");
 	SDL_GL_SetSwapInterval(0); // disable vsync
 	double deltaTimeMin = 1.0 / 1000.0; // framerate cap
 
@@ -27,7 +29,7 @@ int main(int argc, char* argv[]) {
 	ce::Material* environmentGroundMaterial = new ce::Material("basic");
 	ce::Material* environmentBuildingsMaterial = new ce::Material("basic");
 	ce::Transform* environmentPos = new ce::Transform();
-	environmentGroundMaterial->setTexture("floor.png");
+	environmentGroundMaterial->setTexture(ceNt::generateNoiseTexture(64, 64, 2));
 	environmentBuildingsMaterial->setTexture("color.png");
 	environmentPos->setPosition(0.0f, -1.0f, 0.0f);
 
